@@ -1,0 +1,74 @@
+<mat-tab-group animationDuration="400ms">
+        <mat-tab label="Gestão de Usuários">
+            <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                <div class="usuario" fxFlex="25%">
+                    <div class="usuarioForm" fxFlex="90%">
+                        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                            <div fxFlex="100%">    
+                                <p>Cadastrar/Editar Usuário</p>
+                            </div>
+                        </div> 
+                        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px"  fxLayoutGap.xs="0">
+                            <div fxFlex="100%">
+                                <label class="tipoUsuarios">Tipo: </label>
+                                <mat-radio-group [formControl]="tipoUsuarios">
+                                    <mat-radio-button class="radioTipoUsuariosCpf" (change)="changeMask($event)" value="CPF" [disabled]="editar">Cpf</mat-radio-button> 
+                                    <mat-radio-button class="radioTipoUsuariosCnpj" (change)="changeMask($event)" value="CNPJ" [disabled]="editar">Cnpj</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                            <div fxFlex="100%">
+                                <mat-form-field>
+                                    <input matInput [placeholder]="titleCpfCnpj" [formControl]="cpfCnpjUsuarios" [mask]="cpfMask" maxlength="18" [readonly]="editar" >
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                            <div fxFlex="100%">
+                                <mat-form-field>
+                                    <input matInput [placeholder]="titleNomeRazao" [formControl]="nomeUsuarios" maxlength="100">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                            <div fxFlex="100%">
+                                <mat-form-field>
+                                    <input matInput placeholder="Email"  [formControl]="emailUsuarios" maxlength="100">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                            <div class="selectTipoUsuario" fxFlex="100%">
+                                <mat-form-field>
+                                    <mat-select placeholder="Perfil de Usuario" [formControl]="perfilUsuarios" matTooltip="Selecione um Tipo">
+                                        <mat-option *ngFor="let perfil of listaPerfil" [value]="perfil.codPerfil">
+                                            {{ perfil.nomePerfil }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                            <div class="buttonSalvarUsuario" fxFlex="100%">
+                                <button mat-stroked-button color="primary" (click)="inserirEditarUsuario()">Salvar</button> &nbsp; &nbsp;
+                                <button mat-stroked-button color="primary" (click)="limparFormulario()">Limpar</button>
+                            </div>
+                        </div>
+                        <br />
+                    </div>    
+                </div>
+                <div class="usuario" fxFlex="75%">
+                    <div class="usuariosTabela" fxFlex="98%">
+                        <p>Lista de Usuários</p>
+                        <br />
+                        <app-table-usuarios [novoUsuario]="nvUsuario" (change)="povoarFormulario($event)"></app-table-usuarios>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <!-- <mat-tab label="Second">Content 2</mat-tab>
+        <mat-tab label="Third">Content 3</mat-tab> -->
+    </mat-tab-group>
+    
+      

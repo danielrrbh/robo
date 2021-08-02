@@ -1,0 +1,66 @@
+<mat-tab-group animationDuration="400ms">
+    <mat-tab label="Pesquisa BMG">
+        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+            <div class="item" fxFlex="25%">
+                <div class="saqueSuplementarForm" fxFlex="90%">
+                   <p>Consulta - BMG</p>
+                   <br />
+                   <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                    <mat-radio-group aria-label="Escolha o tipo de consulta" [formControl]="tipoConsulta" class="tipoConsulta">
+                         <mat-radio-button value="S" class="radioTipoConsultaSimples">Simples</mat-radio-button>
+                         <mat-radio-button value="C" class="radioTipoConsultaCompleta">Completa</mat-radio-button>
+                    </mat-radio-group>
+                   </div>
+                   <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                        <div fxFlex="100%">
+                            <mat-form-field>
+                               <input matInput placeholder="Nome da Consulta" [formControl]="nomeConsulta" maxlength="20">
+                           </mat-form-field>
+                       </div>
+                   </div>  
+                   <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                        <div class="textArea" fxFlex="100%">
+                            <mat-form-field>
+                                <textarea class="textAreaCpf" matInput matTooltip="Incluir um CPF por linha" placeholder="CPF(s)" rows="30000" cols="14" maxlength="420000" [formControl]="listaCpf" cdkTextareaAutosize cdkAutosizeMaxRows="11" (paste)="contarLinhasTextArea(this)" (click)="contarLinhasTextArea(this)" (keydown)="contarLinhasTextArea(this)" (input)="contarLinhasTextArea(this)" ></textarea>
+                            </mat-form-field>
+                            <ng-container *ngIf="perfilUsuario === '1'">
+                                <p class="countCpf">Voce cadastrou {{ countLinhas }} de 30000 CPFs.</p>
+                            </ng-container>
+                            <ng-container *ngIf="perfilUsuario === '2'">
+                                <p class="countCpf">Voce cadastrou {{ countLinhas }} de 1000 CPFs.</p>
+                            </ng-container>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                        <div class="buttonConsultarDiv" fxFlex="100%">
+                            <button mat-stroked-button color="primary" (click)="pesquisarSaqueSuplementar()">Consultar</button>
+                        </div>
+                    </div> 
+                    <br />   
+                </div>
+            </div>
+            <div class="item item-2" fxFlex="75%">
+                <div class="selectOrgaos" fxFlex="100%">
+                    <mat-form-field class="selectEntidades">
+                        <mat-select placeholder="Orgão" [formControl]="posicao" style="width: 100% !important;" matTooltip="Selecione um orgão">
+                            <mat-option *ngFor="let entidade of listaEntidades" [value]="entidade.codEntidade">
+                                {{entidade.codEntidade}}  - {{entidade.nomeEntidade}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="saqueSuplementarTabela" fxFlex="98%">
+                    <p>Lista de Consultas do Banco BMG</p>
+                    <br/>
+                    <app-tables [novaConsulta]="nvConsulta"></app-tables>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Pesquisa Olé">Página em construção !!!</mat-tab>
+    <!-- <mat-tab label="Third">Content 3</mat-tab> -->
+</mat-tab-group>
+
+  

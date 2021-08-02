@@ -1,0 +1,60 @@
+.usuario {
+    background-color: #ffee9c;
+    text-align: center;
+    border-color: #ffee9c;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    margin-top: 10px; 
+}
+
+.usuarioForm {
+    background-color: white;
+    color: gray;
+    text-align: center;
+    border-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    margin: 5%;
+}
+
+::ng-deep .mat-form-field{
+    background-color: white;
+    color:black;
+    padding: 2px;
+}
+
+.buttonSalvarUsuario {
+   width: 70px!important;
+   height: 30px!important;
+   font-size: 12px;
+   padding: 10%;
+   margin-bottom: 10px;
+}
+
+.usuariosTabela {
+    background-color: white;
+    color: gray;
+    text-align: center;
+    border-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.tipoUsuarios{
+    margin-right: 4%;
+}
+
+.radioTipoUsuariosCpf {
+    padding-left: 3%;
+    padding-right: 6%;
+}
+
+.radioTipoUsuariosCnpj {
+    padding-left: 3%;
+    padding-right: 1%;
+}
+

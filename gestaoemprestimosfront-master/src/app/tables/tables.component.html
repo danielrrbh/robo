@@ -1,0 +1,82 @@
+<!-- <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div class="filtro" fxFlex="100%">
+        <mat-form-field class="filtro">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+        </mat-form-field>
+    </div>
+</div> -->
+<div class="container tableContainer" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div class="tabelaConsultas" fxFlex="100%">
+        <table mat-table [dataSource]="dataSource" matSort >
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="idConsulta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Cod </th>
+                <td mat-cell *matCellDef="let row" class="idConsulta" > {{row.idConsultas}} </td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="dataConsulta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="dataConsulta"> Data </th>
+                <td mat-cell *matCellDef="let row" class="dataConsulta"> {{row.dataConsultas}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="nomeConsulta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="nomeConsulta"> Nome </th>
+                <td mat-cell *matCellDef="let row" class="nomeConsulta"> {{row.nomeConsulta}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="tipoConsulta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="tipoConsulta"> Tipo </th>
+                <td mat-cell *matCellDef="let row" class="tipoConsulta"> {{row.tipoConsulta}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="quantConsulta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="quantConsulta"> Quant </th>
+                <td mat-cell *matCellDef="let row" class="quantConsulta"> {{row.quantConsulta}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="porcentagemConsulta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="porcentagemConsulta"> % </th>
+                <td mat-cell *matCellDef="let row" class="porcentagemConsulta"> {{row.porcentagemConsulta}}% </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="statusConsulta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="statusConsulta"> Status </th>
+                <td mat-cell *matCellDef="let row" class="statusConsulta"> {{row.statusConsulta}} </td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <!-- Tipos de Status
+                  C - a consultar
+                  G - gerando o excel
+                  F - finalizado
+                  E - Excluido
+                  X - Erro ao efetuar Consulta
+                   -->
+            <ng-container matColumnDef="downloadConsulta">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let row" > 
+                    <button mat-icon-button class="matButton" color="primary"  [disabled]="row.statusConsulta != 'Finalizado'" (click)="downloadConsulta(row.idConsultas)">
+                        <mat-icon class="material-icons">get_app</mat-icon>
+                    </button>
+                    <button mat-icon-button class="matButton" color="accent" [disabled]="row.statusConsulta != 'Finalizado'" (click)="refazerConsulta(row)">
+                        <mat-icon class="material-icons" >cached</mat-icon>
+                    </button>
+                    <button mat-icon-button class="matButton" color="warn" [disabled]="row.statusConsulta == 'Gerando'" (click)="apagarConsulta(row)">
+                        <mat-icon class="material-icons" >clear</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
+

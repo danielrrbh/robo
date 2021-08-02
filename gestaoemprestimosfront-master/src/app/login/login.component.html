@@ -1,0 +1,37 @@
+<div class="login-page">
+    <div class="content">
+        <form class="login-form" fxFlex   >
+            <div class="text-center">
+                <img id="logo" src="/assets/images/logo.jpeg" />
+                <p class="app-name">Sistema Integrado de Gestão de Financiamentos</p>
+            </div>
+            <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput name="emailUsuarios" [formControl]="emailUsuarios" 
+                        placeholder="Email">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput type="password"  [formControl]="senhaUsuarios"  placeholder="Senha" >
+                    </mat-form-field>
+                </div>
+            </div>
+            <br />
+            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <button mat-stroked-button class="w-100" (click)="onLogin()">Acessar</button>
+                </div>    
+            </div>
+            <br />
+            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <small id="rodapeLogin">© - 2019 - Brastech Tecnologia - 1.0 </small>
+                </div>    
+            </div>
+        </form>
+    </div>
+</div>

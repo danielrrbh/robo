@@ -1,0 +1,12 @@
+<div class="text-center">
+    <img id="logo" src="/assets/images/logo.jpeg" style="max-width: 180px;" />
+    <br />
+    <h2 class="text-center"><b>{{data.titulo}}</b></h2>
+</div>
+<div mat-dialog-content>
+    <div  [innerHTML]="data.texto"></div> 
+</div>
+<br />
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Fechar</button>
+</div>

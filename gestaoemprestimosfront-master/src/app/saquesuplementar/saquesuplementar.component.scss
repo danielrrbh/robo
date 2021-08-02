@@ -1,0 +1,83 @@
+.item {
+    background-color: #ffee9c;
+    text-align: center;
+    border-color: #ffee9c;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+::ng-deep .mat-form-field{
+    background-color: white;
+    color:black;
+    padding: 2px;
+}
+
+.selectEntidades {
+    width: 90%;
+    margin: 1%;
+} 
+
+.buttonConsultar {
+   width: 70px!important;
+   height: 30px!important;
+   font-size: 12px;
+   padding: 10%;
+}
+
+.textArea {
+    margin-bottom: 10%;
+}
+
+.selectOrgaos {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.saqueSuplementarForm {
+    background-color: white;
+    color: gray;
+    text-align: center;
+    border-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    margin: 5%;
+}
+
+.saqueSuplementarTabela {
+    background-color: white;
+    color: gray;
+    text-align: center;
+    border-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.tipoConsulta {
+    width: 100%;
+    margin-right: 1%;
+}
+
+.radioTipoConsultaSimples {
+    padding-right: 4%;
+    font-size: 14px;
+}
+
+.radioTipoConsultaCompleta {
+    font-size: 14px;
+}
+
+
+.countCpf {
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.textAreaCpf {
+    font-size: 12px;
+}
